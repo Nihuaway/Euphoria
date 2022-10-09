@@ -1,0 +1,113 @@
+@import "styles/constants";
+
+.parent {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  .loading {
+    position: relative;
+    min-height: 10px;
+    min-width: 10px;
+    z-index: 10;
+    box-sizing: border-box;
+    transition: 0.1s;
+
+    .center {
+      border-radius: 100%;
+      background: white;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+    }
+
+    .pick {
+      width: 8%;
+
+      height: 100%;
+      position: absolute;
+      left: 50%;
+    }
+
+    .pick::after {
+      content: "";
+      position: absolute;
+      background: rgba(0, 0, 0, 0.1);
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 70%;
+      border-radius: $radius;
+    }
+  }
+}
+
+.parent[data-process=true] {
+  opacity: 1;
+  pointer-events: auto;
+
+}
+
+.parent[data-process=false] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+
+.loading[data-negative=false] {
+  @for $i from 1 through 12 {
+    .pick:nth-child(#{$i}) {
+      transform: rotate(45deg * ($i - 1));
+
+    }
+    .pick:nth-child(#{$i})::after {
+      animation: loadingBlack 1s (0.125s * ($i - 1)) infinite;
+    }
+  }
+}
+
+.loading[data-negative=true] {
+  @for $i from 1 through 12 {
+    .pick:nth-child(#{$i}) {
+      transform: rotate(45deg * ($i - 1));
+
+    }
+    .pick:nth-child(#{$i})::after {
+      animation: loadingWhite 1s (0.125s * ($i - 1)) infinite;
+    }
+  }
+}
+
+@keyframes loadingBlack {
+  0% {
+    background: rgba(0, 0, 0, 0.75);
+
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.1);
+  }
+}
+
+@keyframes loadingWhite {
+  0% {
+    background: rgba(255, 255, 255, 0.75);
+
+  }
+  100% {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+
+

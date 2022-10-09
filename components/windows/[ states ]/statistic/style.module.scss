@@ -1,0 +1,93 @@
+@import "styles/colors";
+@import "styles/buttons";
+@import "styles/constants";
+@import "styles/styles [ window ]";
+
+.state{
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 24px;
+  width: 100%;
+
+  .title{
+    @include window_title();
+    padding-left: 32px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .content{
+    padding: 71+32px 32px 32px 32px;
+    display: flex;
+    flex-direction: column;
+    grid-row-gap: 32px;
+
+    .info{
+      display: flex;
+      flex-direction: column;
+      grid-row-gap: 16px;
+      align-items: flex-start;
+
+      .card{
+        display: flex;
+        flex-direction: column;
+        grid-row-gap: 4px;
+        padding: 8px 16px;
+        border-radius: $radius;
+        border: 1px solid $day_stroke;
+
+        h4{
+          color: $day_sub_font;
+        }
+
+        h3{
+          font-weight: 500;
+        }
+      }
+
+      .card[data-empty=true]{
+        border: 1px solid transparent;
+        background: $day_selected;
+
+        *{
+          opacity: 0;
+          user-select: none;
+        }
+      }
+    }
+    .tags{
+      display: flex;
+      flex-direction: column;
+      grid-row-gap: 16px;
+      width: 100%;
+      align-items: flex-start;
+
+      .title{
+        grid-column-gap: 8px;
+        align-items: center;
+
+        h5{
+          color: $day_sub_font;
+        }
+      }
+
+      .list{
+        display: flex;
+        flex-wrap:wrap;
+
+        .item{
+          @include button($process: false);
+          @include button_secondary($theme: 'day',$state: 'default');
+
+          padding: 6px 12px;
+          margin-right: 8px;
+          margin-bottom: 8px;
+        }
+
+        .item:hover{
+          @include button_secondary($theme: 'day',$state: 'hover');
+        }
+      }
+    }
+  }
+}

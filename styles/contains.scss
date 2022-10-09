@@ -1,0 +1,24 @@
+@mixin wrap(){
+  width: 100%;
+  padding: 0 64px;
+  margin: 0 auto;
+  max-width: 1700px;
+
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+@mixin page($vertical){
+  width: 100%;
+  min-height: inherit;
+  display: flex;
+  padding-bottom: 48px;
+
+  @if($vertical == true){
+    flex-direction: column;
+  }
+  @else if($vertical == false){
+    justify-content: space-between;
+  }
+}

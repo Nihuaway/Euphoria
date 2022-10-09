@@ -1,0 +1,54 @@
+@import "styles/colors";
+@import "styles/contains";
+@import "styles/constants";
+
+.page {
+  @include page($vertical: false);
+
+  .main {
+    display: grid;
+    grid-row-gap: 32px;
+    grid-template-rows: min-content auto;
+    width: 100%;
+
+    margin-left: 256px;
+
+    .top{
+      display: flex;
+      flex-direction: column;
+      grid-row-gap: 16px;
+    }
+
+    .search{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      grid-row-gap: 8px;
+
+      padding: 16px;
+      border-radius: $radius;
+      border: 1px solid $day_stroke;
+      color: $day_font;
+
+      .close{
+        position: absolute;
+        right: 8px;
+        top: 8px;
+
+        padding: 8px;
+        cursor: pointer;
+        fill: $day_sub_font;
+        transform: $duration;
+      }
+
+      .close:hover{
+        opacity: 0.75;
+      }
+
+      h4{
+        color: $day_sub_font;
+      }
+    }
+  }
+
+}

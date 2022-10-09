@@ -1,0 +1,17 @@
+@import "styles/contains";
+
+.scroll{
+  height: 100vh;
+  overflow-y: scroll;
+  padding-top: 125px;
+}
+
+.wrap {
+  min-height: calc(100vh - 125px);
+  @include wrap();
+}
+
+.wrap[data-disable=true]{
+  pointer-events: none !important;
+}
+

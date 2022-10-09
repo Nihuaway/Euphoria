@@ -1,0 +1,66 @@
+@import "styles/colors";
+@import "styles/constants";
+
+.item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 184px;
+  grid-column-gap: 8px;
+  border: 1px solid transparent;
+  border-radius: $radius;
+  color: $day_sub_font;
+  position: relative;
+  cursor: pointer;
+  background: transparent;
+  transition: 0.2s;
+  h4{
+    height: 20px;
+  }
+
+  svg{
+    fill: $day_sub_font;
+  }
+}
+
+
+.item[data-variant=sorting]{
+  padding: 9px 16px;
+}
+
+.item[data-variant=category]{
+  padding: 8px 16px;
+}
+
+
+
+
+.item[data-state=default]:hover {
+  border: 1px solid $day_stroke;
+  color: $day_font;
+  transform: translateX(1px);
+  svg{
+    fill: $day_font;
+  }
+}
+
+.item[data-state=selected][data-variant=category] {
+  color: $day_font;
+  background: $day_selected;
+  cursor: default;
+  transform: translateX(4px);
+  svg{
+    fill: $day_font;
+  }
+}
+
+.item[data-state=selected][data-variant=sorting] {
+  color: $night_font;
+  background: $night_background;
+  cursor: default;
+  transform: translateX(4px);
+  svg{
+    fill: $night_font;
+  }
+}
+

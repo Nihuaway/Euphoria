@@ -1,0 +1,48 @@
+@import "styles/colors";
+@import "styles/constants";
+
+.stack{
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 16px;
+
+  user-select: none;
+  width: 128px;
+  transition: $duration;
+  cursor: pointer;
+
+  .content{
+    display: flex;
+
+    .more{
+      border-radius: 100%;
+      background: $night_background;
+      color: $night_font;
+
+      width: 32px;
+      height: 32px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-left: -8px;
+    }
+
+    .empty{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: $radius;
+      border: 1px solid $day_stroke;
+      color: $day_sub_font;
+      height: 32px;
+      width: 100%;
+    }
+  }
+}
+
+.stack:hover{
+  opacity: 0.75;
+}

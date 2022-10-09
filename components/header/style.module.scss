@@ -1,0 +1,36 @@
+@import "styles/colors";
+@import "styles/shadows";
+@import "styles/contains";
+
+.parent {
+  position: fixed;
+  display: flex;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+  transition: 0.25s;
+  border-bottom: 1px solid $day_stroke;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(40px);
+
+  justify-content: center;
+  box-sizing: content-box;
+
+
+  .header {
+    @include wrap();
+
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 64px;
+    height: 60px;
+    align-items: center;
+
+    width: 100%;
+
+    max-width: 1700px;
+    margin: 0 auto;
+    position: relative;
+  }
+}

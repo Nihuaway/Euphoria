@@ -1,0 +1,46 @@
+@import "styles/colors";
+@import "styles/constants";
+
+$duration: 0.4s;
+
+.item{
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 24px;
+  transition: $duration cubic-bezier(0.25, 1, 0.5, 1);
+  cursor: pointer;
+
+  .images{
+    display: flex;
+    flex-direction: column;
+    grid-row-gap: 6px;
+    border-radius: $radius;
+    overflow: hidden;
+
+    .others{
+      display: grid;
+      grid-template-columns: auto auto auto;
+      grid-column-gap: 6px;
+    }
+  }
+
+  .title{
+    display: flex;
+    flex-direction: column;
+    grid-row-gap: 4px;
+    align-items: center;
+    height: 40px;
+
+    h3{
+      color: $day_font;
+    }
+
+    h5{
+      color: $day_sub_font;
+    }
+  }
+}
+
+.item:hover{
+  opacity: 0.85;
+}

@@ -1,0 +1,41 @@
+@import "../../../../../../styles/colors";
+
+.item{
+  color: $day_sub_font;
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+
+  h3{
+    padding: 0 8px;
+    transition: 0.2s;
+  }
+
+  .line{
+    height: 5px;
+    border-radius: 5px 5px 0 0;
+    background: $day_font;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: 0.2s;
+  }
+}
+
+.item[data-selected=true]{
+  color: $day_font;
+  h3{
+    transform: translateY(1px);
+  }
+
+
+  .line{
+    transform: scaleY(1);
+  }
+}
+
+.item:hover{
+  color: $day_font;
+
+}

@@ -1,0 +1,19 @@
+@import "styles/colors";
+@import "styles/constants";
+$maxWidth: 850px;
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  grid-column-gap: 16px;
+  padding: 16px;
+  width: 100%;
+  border: 1px solid $day_stroke;
+  border-radius: $radius;
+
+  hr {
+    width: 100%;
+    background: $day_stroke;
+  }
+}

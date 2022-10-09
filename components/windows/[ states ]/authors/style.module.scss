@@ -1,0 +1,88 @@
+@import "styles/styles [ window ]";
+@import "styles/constants";
+
+.state{
+  .title{
+    @include window_title();
+    justify-content: space-between;
+
+
+    .left{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  .content{
+    padding: 24px + 99px 24px 0 24px;
+    overflow: scroll;
+    max-height: 800px;
+
+    .null{
+      display: flex;
+      padding: 16px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      grid-row-gap: 8px;
+
+      border-radius: $radius;
+      white-space: nowrap;
+
+      h4{
+        color: $day_font;
+      }
+
+      h5{
+        color: $day_sub_font;
+      }
+    }
+  }
+
+  .bottom{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    height: 120px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 46.88%, #FFFFFF 100%);
+    z-index: 10;
+    user-select: none;
+    transition: $duration;
+
+
+    .clickable{
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-bottom: 24px;
+      flex-direction: column;
+      grid-row-gap: 4px;
+      cursor: pointer;
+
+      color: $day_sub_font;
+      fill: $day_sub_font;
+      transition: $duration;
+    }
+
+    .clickable:hover{
+      color: $day_font;
+      fill: $day_font;
+    }
+  }
+  .bottom[data-visible=false]{
+    opacity: 0;
+    transform: translateY(5px);
+    pointer-events: none;
+    .clickable{
+      pointer-events: none;
+    }
+
+  }
+}

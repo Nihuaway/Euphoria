@@ -1,0 +1,70 @@
+@import "styles/constants";
+@import "styles/colors";
+@import "styles/shadows";
+
+.suggest {
+  display: flex;
+  align-items: center;
+  grid-column-gap: 8px;
+  padding: 16px 24px;
+  margin-bottom: 8px;
+
+  border-radius: 10px;
+  background: $night_background;
+  box-shadow: $selected_shadow;
+  color: $night_font;
+  transition: $duration;
+
+  overflow: hidden;
+
+  text-align: left;
+
+  svg {
+    fill: $night_font;
+  }
+}
+
+@keyframes start {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes finish {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  to{
+    transform: scale(0.9);
+    opacity: 0;
+  }
+}
+
+
+.suggest[data-visible=true]{
+  animation: start $duration both;
+}
+
+.suggest[data-visible=false]{
+  animation: finish $duration both;
+}
+
+.suggest[data-removing=true]{
+  height: 0;
+  padding: 0;
+  opacity: 0;
+  margin: 0;
+
+  *{
+    height: 0;
+    padding: 0;
+  }
+}

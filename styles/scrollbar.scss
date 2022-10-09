@@ -1,0 +1,14 @@
+@import 'colors.scss';
+
+::-webkit-scrollbar{
+  opacity: 1;
+  width: 12px;
+  background: transparent;
+  position: absolute;
+}
+::-webkit-scrollbar-thumb {
+  background: $day_stroke;
+  background-clip: content-box;
+  border-left: 6px solid transparent;
+  border-right: 2px solid transparent;
+}

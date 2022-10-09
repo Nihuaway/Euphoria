@@ -1,0 +1,33 @@
+@import "../../../../../../../styles/colors";
+@import "../../../../../../../styles/shadows";
+@import "../../../../../../../styles/constants";
+
+.item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+
+  border-radius: $radius;
+  border: 1px solid transparent;
+  transform: scale(1);
+  transform-origin: center;
+  transition: 0.2s;
+  opacity: 0.85;
+  cursor: pointer;
+  user-select: none;
+}
+
+.item:hover{
+  opacity: 1;
+  border: 1px solid $day_stroke;
+  box-shadow: $button_shadow;
+}
+
+.item[data-selected=true]{
+  transition: 0.2s;
+  border: 1px solid $night_background;
+  box-shadow: $button_shadow;
+  opacity: 1;
+  cursor: default;
+}

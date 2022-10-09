@@ -1,0 +1,77 @@
+@import "styles/colors";
+@import "styles/constants";
+
+.menu{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 64px;
+
+  .top{
+    display: flex;
+    grid-column-gap: 24px;
+    align-items: stretch;
+    width: 100%;
+    height:152px;
+
+    .avatar{
+      overflow: hidden;
+      width: 152px;
+      height: 152px;
+      border-radius: 100%;
+    }
+
+    .info{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 12px 0;
+
+      hr{
+        width: 120%;
+        background: linear-gradient(90deg, $day_stroke,$day_stroke, transparent);
+      }
+    }
+  }
+  .bottom{
+    display: flex;
+    align-items: center;
+    grid-column-gap: 4px;
+    margin-bottom: 18px;
+
+    hr{
+      background: $day_stroke;
+      width: 8px;
+    }
+
+    .menuButton{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+
+      color: $day_sub_font;
+      border-radius: $radius;
+      border: 1px solid transparent;
+
+      transition: 0.2s;
+      cursor: pointer;
+    }
+
+    .menuButton:hover{
+      color: $day_font;
+      border: 1px solid $day_stroke;
+      transition: 0s;
+    }
+
+    .menuButton[data-selected=true]{
+      color: $night_font;
+      background: $night_background;
+    }
+  }
+
+  hr{
+    width: 100%;
+    background: $day_stroke;
+  }
+}

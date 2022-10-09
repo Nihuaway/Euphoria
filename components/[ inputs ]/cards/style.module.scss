@@ -1,0 +1,91 @@
+@import "styles/colors";
+@import "styles/shadows";
+@import "styles/constants";
+
+.input {
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 6px;
+
+  .title {
+    position: relative;
+    height: 20px;
+
+    h4 {
+      position: absolute;
+      color: $day_font;
+      left: 8px;
+    }
+
+    h5 {
+      color: $day_font;
+      position: absolute;
+      right: 8px;
+    }
+  }
+  .place {
+    width: 100%;
+    border-radius: $radius;
+    border: 1px solid $day_stroke;
+    padding:6px;
+    color: $day_sub_font;
+
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 6px;
+
+    transition: 0.2s;
+
+    .item{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 8px;
+      background: $day_selected;
+      border-radius: 3px;
+
+      grid-column-gap: 6px;
+
+      fill: $day_sub_font;
+      user-select: none;
+      transition: $duration;
+      cursor: pointer;
+    }
+
+    .item:hover{
+      color: $day_font;
+      background: rgba(0,0,0,0.10);
+      fill: $day_font;
+      transform: translateY(-1px);
+    }
+
+    .addPlace{
+      border: none;
+      outline: none;
+      height: 26px;
+      padding-left: 8px;
+
+      flex: 1;
+      min-width: 40px;
+    }
+  }
+
+  .place:focus {
+    color: $day_font;
+    border: 1px solid $night_background;
+    box-shadow: $button_shadow;
+  }
+
+}
+
+
+.input[data-focused=true] {
+
+  .place {
+    border: 1px solid $night_background;
+    box-shadow: $button_shadow;
+    color: $day_font;
+  }
+}
+
+

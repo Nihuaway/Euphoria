@@ -1,0 +1,14 @@
+@import "styles/colors";
+@import "styles/contains";
+@import "styles/constants";
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-row-gap: 32px;
+  max-width: 850px;
+
+  @include page($vertical: true);
+}
+

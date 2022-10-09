@@ -1,0 +1,48 @@
+@import "styles/colors";
+@import "styles/shadows";
+@import "styles/constants";
+
+.parent {
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 8px;
+  width: 100%;
+
+  .label{
+    display: flex;
+    outline: none;
+    align-items: center;
+    border-radius: $radius;
+    border: 1px solid $day_stroke;
+    grid-column-gap: 8px;
+    padding: 0 12px;
+    fill: $day_sub_font;
+    width: 100%;
+    transition: $duration;
+
+
+    input {
+      all: unset;
+      font-size: 14px;
+      padding: 9px 0 9px 0;
+      color: $day_sub_font;
+      cursor: text;
+      width: 100%;
+    }
+  }
+
+  .label[data-valid=false]{
+    border: 1px solid $red;
+    color: $red;
+  }
+
+  .label[data-active=true]{
+    border: 1px solid $day_font;
+    fill: $day_font;
+    box-shadow: $button_shadow;
+
+    input{
+      color: $day_font;
+    }
+  }
+}

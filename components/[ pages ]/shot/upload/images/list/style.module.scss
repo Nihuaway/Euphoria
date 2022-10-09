@@ -1,0 +1,105 @@
+@import "styles/colors";
+@import "styles/shadows";
+@import "styles/constants";
+
+.parent{
+  .list {
+    position: relative;
+    width: 100%;
+    padding: 8px 24px;
+    display: grid;
+    grid-template-columns: repeat(7,minmax(75px, 200px));
+    grid-column-gap: 16px;
+    overflow-x: hidden;
+  }
+
+  .arrow{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 20;
+    padding: 0 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    fill: $day_font;
+    transition: $duration;
+    cursor: pointer;
+  }
+
+  .arrow:hover{
+    fill: $day_sub_font;
+  }
+
+  .arrow[id=left]{
+    left: 0;
+  }
+  .arrow[id=left]:hover{
+    transform: translateX(-2px);
+  }
+  .arrow[data-visible=false][id=left]{
+    left: -4px;
+  }
+
+  .arrow[id=right]{
+    right: 0;
+    svg{
+      transform: rotateZ(180deg);
+    }
+  }
+  .arrow[id=right]:hover{
+    transform: translateX(2px);
+  }
+  .arrow[data-visible=false][id=right]{
+    right: -4px;
+  }
+
+  .arrow[data-visible=false]{
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.parent:after{
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: calc(100% - 88px);
+  bottom: 0;
+  background: linear-gradient(to left,white,white,transparent);
+  z-index: 10;
+  transition: $duration;
+}
+
+.parent:before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: calc(100% - 88px);
+  bottom: 0;
+  background: linear-gradient(to left,transparent, white,white);
+  z-index: 10;
+  transition: $duration;
+}
+
+.parent[data-right=true]::after{
+  opacity: 1;
+  pointer-events: all;
+}
+.parent[data-right=false]::after{
+  opacity: 0;
+  pointer-events: none;
+}
+
+.parent[data-left=true]::before{
+  opacity: 1;
+  pointer-events: all;
+}
+
+.parent[data-left=false]::before{
+  opacity: 0;
+  pointer-events: none;
+}

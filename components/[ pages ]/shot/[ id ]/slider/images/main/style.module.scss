@@ -1,0 +1,35 @@
+@import "styles/colors";
+@import "styles/constants";
+
+.item{
+  position: absolute;
+  transform-origin: right;
+
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.15);
+  transition: $duration;
+
+
+}
+
+.item[data-scrolled=true]{
+  filter: blur(20px);
+  opacity: 0;
+
+  pointer-events: none;
+  transform: translateX(-10px);
+}
+
+.item[data-far=true]{
+  opacity: 0;
+  pointer-events: none;
+}
+
+.item[data-rendered=false]{
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+.item:last-child{
+  box-shadow: none;
+}

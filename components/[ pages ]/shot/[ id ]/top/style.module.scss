@@ -1,0 +1,52 @@
+@import "styles/colors";
+@import "styles/constants";
+$maxWidth: 850px;
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  grid-column-gap: 32px;
+  width: 100%;
+
+  .left {
+    display: flex;
+    grid-column-gap: 16px;
+    align-items: center;
+    position: relative;
+    width: min-content;
+    max-width: 50%;
+
+    .title{
+      display: flex;
+      overflow: hidden;
+    }
+
+    .author {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      grid-column-gap: 8px;
+      color: $day_font;
+      cursor: pointer;
+      transition: 0.15s;
+      width: min-content;
+      max-width: 50%;
+    }
+
+    .author:hover {
+      opacity: 0.75;
+    }
+
+    svg{
+      fill: $day_font
+    }
+  }
+
+  .right {
+    flex: 1;
+    display: flex;
+    grid-column-gap: 8px;
+    align-items: center;
+  }
+}

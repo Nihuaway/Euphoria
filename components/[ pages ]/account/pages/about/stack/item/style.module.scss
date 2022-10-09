@@ -1,0 +1,14 @@
+@import "styles/colors";
+@import "styles/constants";
+@import "styles/shadows";
+
+
+.item{
+  border-radius: 100%;
+  overflow: hidden;
+  background: white;
+}
+
+.item[data-first=false]{
+  margin-left: -8px;
+}

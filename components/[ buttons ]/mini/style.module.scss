@@ -1,0 +1,61 @@
+@import "../../../styles/colors";
+@import "../../../styles/constants";
+@import "../../../styles/buttons";
+
+.button {
+  padding: 4px 8px !important;
+  transition: 0s !important;
+
+  .content{
+    justify-content: space-between !important;
+  }
+}
+
+.button[data-process=false]{
+  @include button($process: false);
+}
+
+.button[data-process=true]{
+  @include button($process: true);
+}
+
+.button[data-state=transparent] {
+  background: rgba(230,230,230,0.75);
+  backdrop-filter: blur(20px);
+  border: 1px solid transparent;
+  color: $day_font;
+  cursor: pointer;
+
+  svg {
+    fill: $day_font;
+  }
+}
+
+.button[data-state=secondary] {
+  background: $day_selected;
+  border: 1px solid transparent;
+  color: $day_sub_font;
+  cursor: pointer;
+
+  svg {
+    fill: $day_sub_font;
+  }
+}
+
+.button[data-process=false][data-state=secondary]:hover{
+  .content{
+    opacity: 0.75;
+  }
+}
+
+.button[data-state=primary] {
+  background: $night_background;
+  border: 1px solid transparent;
+  color: $night_font;
+  cursor: pointer;
+
+  svg {
+    fill: $night_font;
+  }
+}
+

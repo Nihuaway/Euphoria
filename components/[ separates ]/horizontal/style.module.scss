@@ -1,0 +1,14 @@
+@import "styles/colors";
+
+.separator {
+  height: 1px;
+  width: 100%;
+}
+
+.separator[data-theme=day] {
+  background: $day_stroke;
+}
+
+.separator[data-theme=night] {
+  background: $night_stroke;
+}

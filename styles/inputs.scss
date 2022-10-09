@@ -1,0 +1,55 @@
+@import "colors";
+@import "constants";
+@import "shadows";
+
+input[type=range]{
+  -webkit-appearance: none;
+  height: 6px;
+  width: 100px;
+  background: $day_selected;
+  border-radius: $radius;
+  transition: $duration;
+
+}
+
+input[type=range]:hover{
+  background: $day_stroke;
+}
+
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 100%;
+  background: $day_font;
+  cursor: ew-resize;
+  transition: $duration;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  border-radius: $radius;
+  box-shadow: $button_shadow;
+}
+
+input[type=range]::-webkit-slider-runnable-track  {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+
+
+input[type="range"]::-moz-range-progress {
+  background-color: #43e5f7;
+}
+input[type="range"]::-moz-range-track {
+  background-color: #9a905d;
+}
+input[type="range"]::-ms-fill-lower {
+  background-color: #43e5f7;
+}
+input[type="range"]::-ms-fill-upper {
+  background-color: #9a905d;
+}

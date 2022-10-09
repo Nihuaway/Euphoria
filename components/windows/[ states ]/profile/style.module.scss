@@ -1,0 +1,43 @@
+@import "styles/styles [ window ]";
+
+.state{
+  .title{
+    @include window_title();
+    flex-direction: column;
+    grid-row-gap: 4px;
+    h4{
+      color: $day_sub_font;
+    }
+  }
+
+  .content{
+    display: flex;
+    flex-direction: column;
+    grid-row-gap: 24px;
+
+    padding: 103px + 24px 24px 87px + 24px 24px;
+
+    .avatar{
+      display: grid;
+      grid-template-columns: 88px auto;
+      grid-gap: 16px;
+
+      .buttons{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .upload{
+          input{
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .bottom{
+    @include window_bottom();
+    justify-content: space-between;
+  }
+}

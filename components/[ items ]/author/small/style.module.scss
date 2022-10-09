@@ -1,0 +1,15 @@
+@import "styles/colors";
+@import "styles/constants";
+
+.item {
+  display: flex;
+  align-items: center;
+  grid-column-gap: 8px;
+  color: $day_font;
+  cursor: pointer;
+  transition: $duration;
+}
+
+.item:hover {
+  opacity: 0.75;
+}

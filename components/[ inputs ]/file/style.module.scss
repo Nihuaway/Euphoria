@@ -1,0 +1,177 @@
+@import "styles/constants";
+@import "styles/colors";
+@import "styles/shadows";
+
+.parent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+
+  .label {
+    border-radius: $radius;
+    //padding: 24px;
+    display: flex;
+    position: relative;
+
+    height: inherit;
+    width: inherit;
+
+    transition: $duration;
+    background: $day_background;
+    z-index: 1;
+
+    input {
+      display: none;
+    }
+
+    .content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      transition: $duration;
+
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+
+  .close {
+    position: absolute;
+    right:max(8px, 4%);
+    top: max(8px, 4%);
+    transition: $duration;
+    z-index: 2;
+    padding: 8px;
+    cursor: pointer;
+
+    border-radius: $radius;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
+    fill: $night_font;
+  }
+
+  .close:hover {
+    background: rgba(0, 0, 0, 0.35);
+  }
+
+  .image {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    left: 2px;
+    bottom: 2px;
+    z-index: 10;
+    transition: $duration;
+    transition-property: opacity;
+  }
+
+  .scale {
+    position: absolute;
+    display: flex;
+    left: 8px;
+    right: 8px;
+    top: calc(100% + 8px);
+    border-radius: $radius;
+    background: $day_background;
+
+    padding: 4px;
+    z-index: 8;
+    transition: $duration;
+
+    input {
+      width: 100%;
+    }
+  }
+}
+
+.parent[data-empty=false] {
+  .label{
+    cursor: default;
+  }
+  .close {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: all;
+  }
+
+  .image {
+    opacity: 1;
+  }
+
+  .scale {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.parent[data-empty=true] {
+
+  .label{
+    cursor: pointer;
+  }
+  .close {
+    opacity: 0;
+    transform: scale(0.75);
+    pointer-events: none;
+  }
+
+  .label:hover {
+    box-shadow: $button_shadow;
+    transform: translateY(-1px);
+
+    .content {
+      opacity: 0.75;
+    }
+  }
+
+  .image {
+    opacity: 0;
+  }
+
+  .scale {
+    opacity: 1;
+    transform: translateY(calc(-16px - 100%));
+  }
+}
+
+.parent[data-theme=day] {
+  .label {
+    border: 1px dashed $day_stroke;
+  }
+}
+
+.parent[data-theme=night] {
+  .label {
+    border: 1px dashed $night_stroke;
+  }
+}
+
+
+.parent[data-size=false]{
+  .scale{
+    display: none;
+  }
+}
+
+
+
+.parent[data-disable=true]{
+  pointer-events: none;
+
+  .close{
+    opacity: 0;
+    transform: scale(0.75);
+    pointer-events: none;
+  }
+
+  .scale{
+    display: none;
+  }
+  .move{
+    display: none;
+  }
+}

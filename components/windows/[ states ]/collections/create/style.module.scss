@@ -1,0 +1,28 @@
+@import "styles/colors";
+@import "styles/styles [ window ]";
+
+.state{
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 16px;
+
+  hr{
+    background: $day_stroke;
+    width: 100%;
+  }
+
+  .title{
+    @include window_title();
+  }
+
+  .content{
+    display: flex;
+    flex-direction: column;
+    grid-row-gap: 16px;
+    padding: 24+81px 24px 87+24px 24px;
+  }
+  .bottom{
+    @include window_bottom();
+    justify-content: space-between;
+  }
+}

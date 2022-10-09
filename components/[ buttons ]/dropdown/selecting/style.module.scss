@@ -1,0 +1,37 @@
+@import "styles/colors";
+@import "styles/shadows";
+@import "styles/buttons";
+
+.button {
+  @include button($process: false);
+  z-index: 10;
+}
+
+.button[data-opened=false][data-state=secondary] {
+  @include button_secondary($theme: 'day', $state: 'default');
+}
+
+.button[data-opened=false][data-state=secondary]:hover {
+  @include button_secondary($theme: 'day', $state: 'hover');
+}
+
+.button[data-opened=false][data-state=primary] {
+  @include button_primary($theme: 'day', $state: 'default');
+}
+
+.button[data-opened=false][data-state=primary]:hover {
+  @include button_primary($theme: 'day', $state: 'hover');
+}
+
+
+.button[data-opened=true] {
+  @include levitation($theme: 'day');
+
+  .icon {
+    transform: scaleY(-1);
+  }
+}
+
+.button[data-disabled=true] {
+  @include button_disabled($theme: 'day');
+}

@@ -1,0 +1,98 @@
+@import "styles/colors";
+@import "styles/shadows";
+@import "styles/constants";
+
+$duration: 0.4s;
+
+.shot{
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 12px;
+  transition: $duration cubic-bezier(0.25, 1, 0.5, 1);
+
+  .image{
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: $radius;
+
+    .overflow{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      transition: 0.2s;
+
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      opacity: 0;
+      background: linear-gradient(transparent,transparent, rgba(0,0,0,0.4));
+
+      padding: 12px;
+
+      .author{
+        padding: 4px 8px;
+        //background: rgba(255, 255, 255, 0.75);
+        color: $night_font;
+        z-index: 10;
+        transition: 0.15s;
+      }
+    }
+    .author:hover{
+      opacity: 0.75;
+    }
+  }
+
+  .overflow:hover{
+    opacity: 1;
+  }
+
+  .bottom{
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    transition: $duration;
+    margin-left: 16px;
+
+    .title{
+      display: flex;
+      align-items: stretch;
+      height: min-content;
+      width: 50%;
+    }
+
+    .actions{
+      display: flex;
+      grid-column-gap: 16px;
+      align-items: center;
+      justify-content: flex-end;
+      width: 50%;
+
+      .likeButton{
+        display: flex;
+        width: 60px;
+        height: min-content;
+        div:nth-child(1){
+          width: 100%;
+        }
+      }
+
+      .views{
+        display: flex;
+        grid-column-gap: 6px;
+        align-items: center;
+        color:$day_sub_font;
+        transition: $duration;
+        svg{
+          fill: $day_sub_font;
+        }
+      }
+
+      .views[data-visible=false]{
+        opacity: 0;
+      }
+    }
+  }
+}

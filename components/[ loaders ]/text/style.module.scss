@@ -1,0 +1,39 @@
+@import "styles/colors";
+@import "styles/constants";
+
+.parent{
+  //transition: 0.1s;
+  .text{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background: transparent;
+    //transition: 0.2s;
+  }
+
+  .outline{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 1px;
+    background: $day_sub_font;
+    //transition: 0.2s;
+  }
+}
+
+.parent[data-loading=true]{
+  .text{
+    color: transparent !important;
+    border-radius: $radius;
+    user-select: none;
+  }
+}
+
+.parent[data-loading=false][data-description=true]:hover{
+  .text, .outline {
+    opacity: 0.75;
+  }
+}
+

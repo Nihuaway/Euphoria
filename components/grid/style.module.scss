@@ -1,0 +1,139 @@
+@import "styles/colors";
+@import "styles/constants";
+
+.parent{
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+@mixin grid{
+  display: grid;
+  grid-gap: 48px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  list-style: none;
+  position: relative;
+}
+
+.grid {
+  @include grid;
+  padding-bottom: 48px;
+}
+.grid[data-loading=false]{
+  height: min-content;
+
+  @for $i from 1 through 8 {
+    .item:nth-child(#{$i}) {
+      animation: loaded_item 0.4s ($i / 2 * 0.1s) both;
+    }
+  }
+}
+
+.grid[data-loading=true]{
+  pointer-events: none;
+}
+
+.grid[data-loading=true]::after{
+  content: "";
+
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 92px;
+  background: linear-gradient(transparent, white);
+  z-index: 10;
+}
+
+
+
+.loading {
+  @include grid;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  overflow: hidden;
+
+  //transition: 0.4s;
+
+  .item{
+    //transition: 0.4s;
+    transform-origin: center;
+  }
+
+}
+.loading::after{
+  content: "";
+
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 92px;
+  background: linear-gradient(transparent, white);
+  z-index: 1;
+}
+
+
+
+.loading[data-visible=true]{
+  opacity: 1;
+  pointer-events: all;
+
+  @for $i from 1 through 8 {
+    .item:nth-child(#{$i}) {
+      //animation: start 0.4s ($i / 2 * 0.1s) both;
+    }
+  }
+}
+
+.loading[data-visible=false]{
+  opacity: 0;
+
+  pointer-events: none;
+  height: 0;
+
+  @for $i from 1 through 8 {
+    .item:nth-child(#{$i}) {
+      //animation: close 0.4s both;
+    }
+  }
+}
+
+@keyframes loaded_item {
+  0%{
+    opacity: 0;
+    transform-origin: center;
+    //transform: translateY(5px);
+  }
+
+  100%{
+    opacity: 1;
+    //transform: translateY(0);
+  }
+}
+
+@keyframes start {
+  0%{
+    opacity: 0;
+    //transform: translateY(10px);
+  }
+
+  100%{
+    opacity: 1;
+    //transform: translateY(0);
+  }
+}
+
+@keyframes close {
+  0%{
+    opacity: 1;
+    //transform: scale(1);
+  }
+  100%{
+    opacity: 0;
+    //transform: scale(0.975);
+  }
+}

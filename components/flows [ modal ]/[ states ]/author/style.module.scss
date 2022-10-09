@@ -1,0 +1,83 @@
+@import "styles/constants";
+@import "styles/colors";
+@import "styles/shadows";
+
+
+.state {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 12px;
+
+  width: 281px;
+
+  hr{
+    background: $night_stroke;
+    width: 100%;
+    height: 1px;
+  }
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-radius: $radius;
+
+    .title {
+      display: flex;
+      grid-column-gap: 12px;
+      align-items: center;
+      transition: $duration;
+
+      cursor: pointer;
+
+      .name{
+        display: flex;
+        flex-direction: column;
+        grid-row-gap: 4px;
+        h5{
+          color: $night_sub_font;
+        }
+      }
+    }
+
+    .title:hover {
+      opacity: 0.75;
+    }
+  }
+
+  .bottom {
+    display: flex;
+    grid-column-gap: 12px;
+
+    .image {
+      width: 75px;
+      height: 56px;
+      transition: $duration;
+      cursor: pointer;
+    }
+
+    .image[data-exist=false]{
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .image:hover{
+      opacity: 0.75;
+    }
+
+    .empty{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid $night_stroke;
+      border-radius: $radius;
+      color: $night_sub_font;
+
+      width: 100%;
+      height: 55.85px;
+
+    }
+  }
+}

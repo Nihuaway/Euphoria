@@ -1,0 +1,102 @@
+@import "styles/colors";
+@import "styles/shadows";
+@import "styles/constants";
+
+$duration: 0.4s;
+
+.draft{
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 12px;
+  transition: $duration cubic-bezier(0.25, 1, 0.5, 1);
+
+  .imageParent{
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: $radius;
+
+    .overflow{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      transition: 0.2s;
+
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      opacity: 0;
+      background: linear-gradient(transparent,transparent, rgba(0,0,0,0.4));
+
+      padding: 12px;
+
+      .author{
+        padding: 4px 8px;
+
+        cursor: default;
+        border-radius: $radius;
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(20px);
+
+        color: $day_font;
+        z-index: 10;
+        transition: 0.15s;
+      }
+    }
+    .author:hover{
+      color: $day_sub_font;
+    }
+  }
+
+  .bottom{
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    transition: $duration;
+    margin-left: 16px;
+
+    .title{
+      display: flex;
+      align-items: stretch;
+      height: min-content;
+      width: 50%;
+    }
+
+    .actions{
+      display: flex;
+      grid-column-gap: 16px;
+      align-items: center;
+      justify-content: flex-end;
+      width: 50%;
+
+      .remove{
+        display: flex;
+        grid-column-gap: 6px;
+        align-items: center;
+        opacity: 0.5;
+        color: #FF0000;
+        transition: $duration;
+        cursor: pointer;
+        svg{
+          fill: #FF0000;
+        }
+      }
+
+      .remove:hover{
+        opacity: 0.35;
+      }
+
+      .remove[data-visible=false]{
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+  }
+}
+.draft[data-loading=false]{
+  .overflow:hover{
+    opacity: 1;
+  }
+}

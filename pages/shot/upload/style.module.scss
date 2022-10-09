@@ -1,0 +1,59 @@
+@import "styles/colors";
+@import "styles/shadows";
+@import "styles/constants";
+@import "styles/contains";
+
+$maxWidth: 850px;
+
+.page {
+  @include page($vertical: true);
+  grid-row-gap: 32px;
+  align-items: center;
+  max-width: $maxWidth;
+  width: 100%;
+
+  .images {
+    display: flex;
+    flex-direction: column;
+    grid-row-gap: 16px;
+    max-width: $maxWidth;
+    width: 100%;
+  }
+
+  .description {
+    display: flex;
+    flex-direction: column;
+    grid-row-gap: 8px;
+    padding: 0 24px;
+    width: 100%;
+    max-width: $maxWidth;
+
+    textarea {
+      width: 100%;
+      min-height: 100px;
+      resize: vertical;
+
+      border-radius: $radius;
+      border: 1px solid $day_stroke;
+      padding: 16px;
+
+      font-size: 16px;
+      font-weight: 400;
+      color: $day_sub_font;
+
+      outline: none;
+      transition: 0.2s;
+    }
+
+    textarea:focus {
+      color: $day_font;
+      border: 1px solid $night_background;
+      box-shadow: $button_shadow;
+    }
+  }
+
+  .tags {
+    max-width: $maxWidth;
+  }
+}
+

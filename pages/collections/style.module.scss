@@ -1,0 +1,11 @@
+@import "styles/contains";
+
+.page{
+  @include page($vertical: true);
+  display: grid;
+  grid-template-rows: min-content min-content auto;
+  .main{
+    height: 100%;
+    width: 100%;
+  }
+}

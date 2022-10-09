@@ -1,0 +1,39 @@
+@import "../../../../styles/colors";
+
+.left {
+  display: flex;
+  flex-direction: column;
+  width: 184px;
+  grid-row-gap: 24px;
+  position: fixed;
+  height: calc(100vh - 125px);
+
+  ol {
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    grid-row-gap: 8px;
+    position: relative;
+  }
+
+  .separator {
+    display: flex;
+    justify-content: space-between;
+    grid-column-gap: 8px;
+
+    h5 {
+      color: $day_sub_font;
+      z-index: 0;
+    }
+
+    hr {
+      background-color: $day_stroke;
+      width: 100%;
+    }
+  }
+
+
+}

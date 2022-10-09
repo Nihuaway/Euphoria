@@ -1,0 +1,28 @@
+
+@import "styles/colors";
+@import "styles/constants";
+$maxWidth: 850px;
+
+.imagesBlock {
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 16px;
+  max-width: $maxWidth;
+  width: 100%;
+
+  transition: 1.25s;
+
+  .main {
+    display: flex;
+    position: relative;
+    height: 630px;
+
+
+  }
+
+  .list{
+    display: flex;
+    justify-content: center;
+    grid-column-gap: 8px;
+  }
+}

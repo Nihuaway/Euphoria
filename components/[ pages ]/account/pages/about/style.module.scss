@@ -1,0 +1,56 @@
+@import "styles/colors";
+@import "styles/constants";
+
+.stage{
+  display: flex;
+  grid-column-gap: 24px;
+
+  .info{
+    display: flex;
+    flex-direction: column;
+    grid-row-gap: 32px;
+    width: 400px;
+
+    .bio, .skills{
+      display: flex;
+      flex-direction: column;
+      grid-row-gap: 8px;
+
+      h4{
+        color: $day_sub_font;
+        display: flex;
+        white-space: pre-wrap;
+      }
+    }
+
+    .skills{
+      user-select: none;
+
+      .content{
+        display: flex;
+        flex-wrap:wrap;
+        grid-gap: 8px;
+
+        .item{
+          display: flex;
+          border-radius: $radius;
+          padding: 4px 8px;
+          border: 1px solid $day_stroke;
+        }
+
+      }
+    }
+
+  }
+
+  .right{
+    display: flex;
+    flex-direction: column;
+    grid-row-gap: 16px;
+
+    hr{
+      width: 100%;
+    }
+  }
+}
+

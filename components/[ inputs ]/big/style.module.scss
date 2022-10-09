@@ -1,0 +1,43 @@
+@import "styles/colors";
+@import "styles/shadows";
+@import "styles/constants";
+
+.parent {
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 6px;
+  width: 100%;
+
+  .label {
+    display: flex;
+    grid-column-gap: 8px;
+
+    textarea {
+      width: 100%;
+      min-height: 50px;
+      resize: vertical;
+
+      background: none !important;
+      border-radius: $radius;
+      border: 1px solid $day_stroke;
+      padding: 9px 16px 9px 12px;
+
+      font-size: 14px;
+      font-weight: 400;
+      color: $day_sub_font;
+
+      outline: none;
+      transition: $duration;
+    }
+  }
+
+  .label[data-active=true] {
+    fill: $day_font;
+
+    textarea {
+      color: $day_font;
+      border: 1px solid $night_background;
+      box-shadow: $button_shadow;
+    }
+  }
+}

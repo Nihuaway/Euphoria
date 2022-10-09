@@ -1,0 +1,142 @@
+@import "colors";
+@import "shadows";
+@import "constants";
+
+
+
+
+@mixin button($process){
+  transition: $duration;
+  border-radius: $radius;
+  padding: $padding;
+
+  user-select: none;
+  width: min-content;
+  height: min-content;
+  white-space: nowrap;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 14px;
+    grid-column-gap: 8px;
+
+    svg{
+      transition: $duration;
+    }
+  }
+
+  @if($process == true){
+    .content{
+      opacity: 0;
+    }
+  }
+  @else {
+    .content{
+      opacity: 1;
+    }
+  }
+}
+
+@mixin button_disabled($theme){
+  opacity: 0.5;
+  cursor: default;
+  pointer-events: none;
+
+  @if $theme == 'day' {
+    border: 1px solid $day_stroke;
+    color: $day_sub_font;
+  }
+  @else if $theme == 'night' {
+    border: 1px solid $night_stroke;
+    color: $night_sub_font;
+  }
+}
+
+@mixin button_secondary($theme, $state){
+  cursor: pointer;
+  @if $theme == 'day' {
+    border: 1px solid $day_stroke;
+    @if $state == 'default'{
+      color: $day_sub_font;
+      svg{
+        fill: $day_sub_font;
+      }
+    }
+    @else if $state == 'hover'{
+      background: $day_selected;
+      color: $day_font;
+      svg{
+        fill: $day_font;
+      }
+      box-shadow: $button_shadow;
+      transform: translateY(-1px);
+    }
+  }
+  @else if $theme == 'night' {
+    border: 1px solid $night_stroke;
+    @if $state == 'default'{
+      color: $night_sub_font;
+      fill: $night_sub_font;
+    }
+    @else if $state == 'hover'{
+      background: $night_selected;
+      color: $night_font;
+      fill: $night_font;
+      box-shadow: $button_shadow;
+      transform: translateY(-1px);
+    }
+  }
+}
+
+@mixin button_primary($theme, $state) {
+  cursor: pointer;
+
+  @if $theme == 'day' {
+    border: 1px solid $night_background;
+    color: $day_font;
+    fill: $day_font;
+
+    @if $state == 'hover'{
+      background: $day_selected;
+      box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.25);
+      transform: translateY(-1px);
+    }
+  }
+  @else if $theme == 'night' {
+    border: 1px solid $day_background;
+    color: $night_font;
+    fill: $night_font;
+
+    @if $state == 'hover'{
+      box-shadow: $button_shadow;
+      background: $night_selected;
+    }
+  }
+}
+
+@mixin levitation($theme){
+  box-shadow: $selected_shadow;
+  border: 1px solid transparent;
+  transition: $duration;
+  border-radius: $radius;
+  svg{
+    transition: $duration;
+  }
+
+  @if $theme == 'day'{
+    background: $night_background;
+    color: $night_font;
+    fill: $night_font;
+  }
+  @else if $theme == 'night'{
+    background: $day_background;
+    color: $day_font;
+    fill: $day_font;
+  }
+}

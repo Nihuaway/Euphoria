@@ -1,0 +1,43 @@
+@import "styles/colors";
+@import "styles/constants";
+
+.right {
+  display: flex;
+  grid-column-gap: 16px;
+  align-items: center;
+
+
+  .button{
+    div:only-child{
+      border: none !important;
+    }
+    div:only-child[data-opened=false]{
+      color: $day_font !important;
+    }
+    div:only-child[data-opened=false]:hover{
+      background: none;
+      box-shadow: none !important;
+      transform: unset;
+      opacity: 0.75;
+    }
+
+    div:only-child[data-opened=true]{
+      .avatar{
+        border-radius: $radius;
+      }
+    }
+    .text *{
+      transition: 0s !important;
+    }
+
+    .avatar{
+      border-radius: 100%;
+      width: 22px;
+      height: 22px;
+      overflow: hidden;
+      transition: $duration;
+    }
+  }
+
+
+}

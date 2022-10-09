@@ -1,0 +1,50 @@
+@import "styles/colors";
+@import "styles/shadows";
+
+$maxWidth: 850px;
+
+.info{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: white;
+  transition: 0.2s;
+
+
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-row-gap: 12px;
+    margin-top: 24px;
+
+    h3 {
+      color: $day_font;
+    }
+
+    h4 {
+      color: $day_sub_font;
+    }
+  }
+
+  hr {
+    width: 250px;
+    margin-top: 24px;
+  }
+
+  .rules {
+    display: flex;
+    grid-column-gap: 24px;
+    color: $day_sub_font;
+
+    ul {
+      list-style: disc;
+
+      li {
+        margin: 4px 0;
+      }
+    }
+  }
+}

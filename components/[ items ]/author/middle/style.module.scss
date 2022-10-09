@@ -1,0 +1,53 @@
+@import "styles/constants";
+@import "styles/colors";
+
+.item {
+  display: flex;
+  padding: 8px;
+  justify-content: space-between;
+  border-radius: $radius;
+  cursor: pointer;
+  transition: $duration;
+
+  .main {
+    display: flex;
+    grid-column-gap: 12px;
+
+    .title {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 2px 0;
+      align-items: flex-start;
+    }
+  }
+
+  .additional{
+    user-select: none;
+  }
+}
+
+.item:hover {
+  opacity: 0.75;
+}
+
+
+.item[data-theme=day] {
+  h4 {
+    color: $day_font;
+  }
+
+  h5 {
+    color: $day_sub_font;
+  }
+}
+
+.item[data-theme=night] {
+  h4 {
+    color: $night_font;
+  }
+
+  h5 {
+    color: $night_sub_font;
+  }
+}

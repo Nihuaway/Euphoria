@@ -1,0 +1,35 @@
+@import "styles/colors";
+@import "styles/shadows";
+@import "styles/buttons";
+
+.button{
+  @include button($process: false);
+  z-index: 10;
+
+  .icon{
+    margin-left: 4px;
+    transition: $duration;
+  }
+}
+
+.button[data-opened=false]{
+  @include button_secondary($theme: 'day', $state: 'default');
+}
+
+.button[data-opened=false]:hover{
+  @include button_secondary($theme: 'day', $state: 'hover');
+}
+
+.button[data-opened=true]{
+  @include levitation($theme: 'day');
+
+  .icon{
+    transform: scaleY(-1);
+  }
+}
+
+.button[data-disabled=true]{
+  @include button_disabled($theme: 'day');
+}
+
+

@@ -1,0 +1,32 @@
+@import "styles/constants";
+
+.flow{
+  position: sticky;
+  z-index: 10;
+  height: 200px;
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  grid-row-gap: 12px;
+
+  hr{
+    margin: 0 auto;
+
+  }
+
+  .avatar{
+    .image{
+      transition: $duration;
+      cursor: pointer;
+    }
+  }
+
+  .avatar:hover{
+    .image{
+      transform: scale(0.95);
+      opacity: 0.75;
+    }
+  }
+}

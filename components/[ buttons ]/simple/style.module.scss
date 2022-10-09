@@ -1,0 +1,79 @@
+@import "../../../styles/colors";
+@import "../../../styles/buttons";
+
+.button[data-process=false] {
+  @include button($process: false);
+}
+
+.button[data-process=true] {
+  @include button($process: true);
+}
+
+.button[data-state=primary][data-theme=day] {
+  @include button_primary($theme: 'day', $state: 'default');
+}
+
+.button[data-state=primary][data-theme=day]:hover {
+  @include button_primary($theme: 'day', $state: 'hover');
+}
+
+.button[data-state=secondary][data-theme=day] {
+  @include button_secondary($theme: 'day', $state: 'default');
+}
+
+.button[data-state=secondary][data-theme=day]:hover {
+  @include button_secondary($theme: 'day', $state: 'hover');
+}
+
+.button[data-disable=disable][data-theme=day] {
+  @include button_disabled($theme: 'day');
+}
+
+.button[data-state=primary][data-theme=night] {
+  @include button_primary($theme: 'night', $state: 'default');
+}
+
+.button[data-state=primary][data-theme=night]:hover {
+  @include button_primary($theme: 'night', $state: 'hover');
+}
+
+.button[data-state=secondary][data-theme=night] {
+  @include button_secondary($theme: 'night', $state: 'default');
+}
+
+.button[data-state=secondary][data-theme=night]:hover {
+  @include button_secondary($theme: 'night', $state: 'hover');
+}
+
+.button[data-state=disable][data-theme=night] {
+  @include button_disabled($theme: 'night');
+}
+
+.button[data-loading=true][data-theme=night]{
+  pointer-events: none;
+  background: transparent;
+  border: 1px solid $night_stroke;
+
+  *{
+    opacity: 0;
+  }
+}
+
+.button[data-loading=true][data-theme=day]{
+  pointer-events: none;
+  background: transparent;
+  border: 1px solid $day_stroke;
+
+  *{
+    opacity: 0;
+  }
+}
+
+
+.button[data-styling=inherit]{
+  background: inherit !important;
+  border: inherit !important;
+  color: inherit !important;
+  border-radius: inherit !important;
+  backdrop-filter: inherit !important;
+}

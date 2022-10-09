@@ -1,0 +1,79 @@
+@import "styles/colors";
+@import "styles/contains";
+@import "styles/constants";
+
+.author{
+  width: 100%;
+  padding: 48px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  grid-row-gap: 24px;
+
+  .top{
+    display: flex;
+    align-items: center;
+    grid-column-gap: 48px;
+    width: 100%;
+    justify-content: space-between;
+
+    hr{
+      background: $day_stroke;
+      width: 100%;
+    }
+  }
+
+  .bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    h2{
+      color: $day_font;
+    }
+
+    h4{
+      color: $day_sub_font;
+    }
+  }
+}
+
+.moreBy{
+  width: 100%;
+  border-radius: $radius;
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 48px;
+
+
+  .title{
+    display: flex;
+    padding: 0 24px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .moreByList{
+    display: grid;
+    grid-gap: 32px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    list-style: none;
+    position: relative;
+
+    .emptyShotBy{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 160px;
+
+      margin-bottom: 38px;
+
+      border: 1px dashed $day_stroke;
+      border-radius: $radius;
+      color: $day_sub_font;
+    }
+  }
+}

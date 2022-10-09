@@ -1,0 +1,23 @@
+@import "styles/styles [ window ]";
+@import "styles/constants";
+@import "styles/buttons";
+
+.middle{
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 16px;
+  padding: 81px + 24 24px 87px + 24 24px;
+
+  .list{
+    display: flex;
+    flex-wrap:wrap;
+    padding: 0 8px;
+
+    .item{
+      background: $day_selected;
+      margin-right: 8px;
+      margin-bottom: 8px;
+      pointer-events: none;
+    }
+  }
+}

@@ -1,0 +1,155 @@
+@import "styles/colors";
+@import "styles/constants";
+@import "styles/shadows";
+
+.parent {
+  position: absolute;
+  z-index: 998;
+}
+
+.flow {
+  background: $night_background;
+  transition: $duration;
+  color: $night_font;
+  border-radius: $radius;
+  box-shadow: $window_shadow;
+}
+
+@mixin parent($orient, $position){
+  @if($orient == 'left'){
+    right: 100%;
+    padding-right: 20px;
+    @if($position == -1){
+      top: 0;
+    }
+    @else if($position == 0){
+      top: 50%;
+      margin-top: -50%;
+      transform: translateY(-50%)
+    }
+    @else if($position == 1){
+      bottom: 0;
+    }
+  }
+  @if($orient == 'right'){
+    left: 100%;
+    padding-left: 20px;
+    @if($position == -1){
+      top: 0;
+    }
+    @else if($position == 0){
+      top: 50%;
+      margin-top: -50%;
+      transform: translateY(-50%)
+    }
+    @else if($position == 1){
+      bottom: 0;
+    }
+  }
+  @if($orient == 'top'){
+    bottom: 100%;
+    padding-bottom: 20px;
+
+    @if($position == -1){
+      left: 0;
+    }
+    @if($position == 0){
+      left: 50%;
+      margin-right: -50%;
+      transform: translateX(-50%);
+    }
+    @if($position == 1){
+      right: 0;
+    }
+  }
+  @if($orient == 'bottom'){
+    top: 100%;
+    padding-top: 20px;
+    @if($position == -1){
+      right: 0;
+    }
+    @else if($position == 0){
+      left: 50%;
+      margin-right: -50%;
+      transform: translateX(-50%)
+    }
+    @else if($position == 1){
+      left: 0;
+    }
+  }
+}
+
+.parent[data-orient=left][data-position="-1"] {
+  @include parent($orient: 'left', $position: -1)
+}
+.parent[data-orient=left][data-position="0"] {
+  @include parent($orient: 'left', $position: 1)
+}
+.parent[data-orient=left][data-position="1"] {
+  @include parent($orient: 'left', $position: 1)
+}
+
+.parent[data-orient=right][data-position="-1"] {
+  @include parent($orient: 'right', $position: -1)
+}
+.parent[data-orient=right][data-position="0"] {
+  @include parent($orient: 'right', $position: 1)
+}
+.parent[data-orient=right][data-position="1"] {
+  @include parent($orient: 'right', $position: 1)
+}
+
+.parent[data-orient=top][data-position="-1"] {
+  @include parent($orient: 'top', $position: -1)
+}
+.parent[data-orient=top][data-position="0"] {
+  @include parent($orient: 'top', $position: 0)
+}
+.parent[data-orient=top][data-position="1"] {
+  @include parent($orient: 'top', $position: 1)
+}
+
+.parent[data-orient=bottom][data-position="-1"] {
+  @include parent($orient: 'bottom', $position: -1)
+}
+.parent[data-orient=bottom][data-position="0"] {
+  @include parent($orient: 'bottom', $position: 1)
+}
+.parent[data-orient=bottom][data-position="1"] {
+  @include parent($orient: 'bottom', $position: 1)
+}
+
+
+.parent[data-opened=false] {
+  pointer-events: none;
+  .flow{
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.parent[data-opened=false][data-orient=left] {
+  .flow {
+    transform: translateX(-5px);
+  }
+
+}
+
+.parent[data-opened=false][data-orient=right] {
+  .flow {
+    transform: translateX(5px);
+  }
+}
+
+.parent[data-opened=false][data-orient=top] {
+  .flow {
+    transform: translateY(-5px);
+  }
+}
+
+.parent[data-opened=false][data-orient=bottom] {
+  .flow {
+    transform: translateY(5px);
+  }
+}
+

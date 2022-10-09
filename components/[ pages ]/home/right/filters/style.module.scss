@@ -1,0 +1,23 @@
+@import "../../../../../styles/colors";
+
+.filters{
+  display: flex;
+  align-items: center;
+  grid-column-gap: 8px;
+  width: 100%;
+  z-index: 1;
+
+  .filtersLeft{
+    display: flex;
+    align-items: center;
+    grid-column-gap: 8px;
+
+  }
+
+  hr{
+    background: $day_stroke;
+    width: 8px;
+    flex-grow: 1;
+    box-sizing: content-box;
+  }
+}

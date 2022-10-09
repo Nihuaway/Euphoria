@@ -1,0 +1,137 @@
+@import "styles/colors";
+@import "styles/shadows";
+@import "styles/constants";
+
+.item{
+  width: 100%;
+  padding-top: 75%; /* 4:3 Aspect Ratio */
+  position: relative;
+
+  .children{
+    transition: $duration;
+  }
+}
+
+.item[data-disable=true]{
+  .children{
+    opacity: 0;
+  }
+}
+
+.item[data-disable=false]{
+  .children{
+    opacity: 1;
+  }
+}
+
+//.item {
+//  width: 100%;
+//  height: 100%;
+//  border: 1px dashed rgba(0, 0, 0, 0.25);
+//  border-radius: $radius;
+//  padding: 2px;
+//  transition: 0.2s;
+//  position: relative;
+//
+//  img{
+//    image-rendering: optimizeSpeed;
+//  }
+//
+//  .file{
+//    position: absolute;
+//    top: 0;
+//    bottom: 0;
+//    right: 0;
+//    left: 0;
+//    opacity: 0;
+//    cursor: pointer;
+//  }
+//
+//  .plus{
+//    position: absolute;
+//    top: 2px;
+//    right: 2px;
+//    bottom: 2px;
+//    left: 2px;
+//    border-radius: 1px;
+//    display: flex;
+//    align-items: center;
+//    justify-content: center;
+//    pointer-events: none;
+//    background: white;
+//    transition: 0.2s;
+//    svg {
+//      transition: 0.2s;
+//      fill: transparent;
+//    }
+//  }
+//
+//  .remove{
+//    position: absolute;
+//    top: min(8%, 16px);
+//    right: min(8%, 16px);
+//    pointer-events: none;
+//    transition: 0.2s;
+//    background: $night_background;
+//    border: 1px solid $night_stroke;
+//    border-radius: $radius;
+//    padding: 4px;
+//    opacity: 0;
+//    z-index: 1;
+//    cursor: pointer;
+//    svg {
+//      transition: 0.2s;
+//      fill: $night_font;
+//    }
+//  }
+//
+//
+//}
+//
+//.item[data-access=false] {
+//  opacity: 0.75;
+//  pointer-events: none;
+//
+//
+//}
+//
+//.item[data-access=true] {
+//  opacity: 1;
+//  pointer-events: all;
+//  .plus{
+//    svg {
+//      fill: $day_sub_font;
+//      opacity: 0.5;
+//    }
+//  }
+//}
+//.item[data-access=true][data-uploaded=false]:hover {
+//  opacity: 0.85;
+//  background: $day_background;
+//  box-shadow: $button_shadow;
+//  transform: translateY(-1px);
+//  .plus{
+//    svg {
+//      fill: $day_sub_font;
+//      opacity: 1;
+//    }
+//  }
+//}
+//
+//.item[data-uploaded=true]{
+//  .file{
+//    pointer-events: none;
+//  }
+//  .remove{
+//    transform: scale(0.9);
+//    opacity: 0;
+//    pointer-events: all;
+//  }
+//}
+//.item[data-uploaded=true]:hover{
+//  .remove{
+//    opacity: 0.75;
+//    transform: scale(1);
+//  }
+//}
+//

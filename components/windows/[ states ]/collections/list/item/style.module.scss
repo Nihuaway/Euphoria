@@ -1,0 +1,85 @@
+@import "styles/colors";
+@import "styles/shadows";
+@import "styles/constants";
+
+
+.preview{
+  display: flex;
+  border-radius: $radius;
+  padding: 6px;
+  grid-column-gap: 16px;
+  border: 1px solid $day_stroke;
+  cursor: pointer;
+  transition: 0.25s;
+  overflow: hidden;
+
+  img{
+    border-radius: 3px;
+  }
+
+  .title{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2px 0;
+    align-items: flex-start;
+
+    .count{
+      display: flex;
+      align-items: center;
+      width: min-content;
+      white-space: nowrap;
+      background: $day_selected;
+      border-radius: 3px;
+      padding: 2px 6px;
+      margin-top: 4px;
+    }
+  }
+}
+
+.preview::after{
+  color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
+  top: -1px;
+  width: 20px;
+  border-radius: 0 $radius $radius 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: 0.25s;
+}
+
+.preview:hover::after{
+  transform: scaleX(1);
+  color: $night_font;
+}
+
+.preview[data-process=true]::after{
+  color: transparent;
+}
+
+.preview[data-selected=false]::after{
+  content: "+";
+  background: $day_font;
+}
+.preview[data-selected=true]::after{
+  content: "-";
+  background: #FF4D4D;
+}
+
+
+.preview[data-selected=true]{
+  border: 1px solid $night_background;
+}
+
+
+.preview[data-loading=true]{
+  border: 1px solid transparent;
+  cursor: pointer;
+  pointer-events: none;
+}

@@ -1,0 +1,20 @@
+.menu{
+  display: flex;
+  position: relative;
+  width: 100%;
+
+  .items{
+    display: flex;
+    flex-direction: row;
+    grid-column-gap: 32px;
+  }
+
+  hr{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    width: 100% !important;
+  }
+}

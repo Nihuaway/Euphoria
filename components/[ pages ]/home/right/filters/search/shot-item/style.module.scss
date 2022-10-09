@@ -1,0 +1,55 @@
+@import "styles/colors";
+@import "styles/shadows";
+@import "styles/constants";
+
+.item{
+  display: flex;
+  padding: 6px;
+  grid-column-gap: 16px;
+  width: 284px;
+
+  border-radius: $radius;
+  transition: 0.2s;
+  cursor: pointer;
+
+  animation: 0.4s start backwards cubic-bezier(0.25, 1, 0.5, 1);
+
+  .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+
+    .title{
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 8px 0;
+      justify-content: space-between;
+      width: min-content;
+
+      h5{
+        color: $night_sub_font;
+      }
+    }
+
+    .bottom{
+      display: flex;
+    }
+  }
+
+  opacity: 0.75;
+}
+
+.item:hover{
+  background: $night_selected;
+  box-shadow: $button_shadow;
+  opacity: 1;
+}
+
+@keyframes start {
+  from{
+    transform: translateX(-5px);
+    opacity: 0;
+  }
+}

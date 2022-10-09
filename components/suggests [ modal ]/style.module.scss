@@ -1,0 +1,16 @@
+@import "styles/constants";
+@import "styles/colors";
+@import "styles/shadows";
+
+.parent {
+  position: fixed;
+  bottom: 32px;
+  left: 32px;
+  z-index: 1002;
+
+  transition: $duration;
+
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+}
