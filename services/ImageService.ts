@@ -3,8 +3,6 @@ export const resize = (image: CanvasImageSource, maxWidth: number, maxHeight: nu
   let width = parseInt(image.width.toString());
   let height = parseInt(image.height.toString());
 
-
-
   // calculate the width and height, constraining the proportions
   if (width > height) {
     if (width > maxWidth) {
